@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		A105D14E2C24426100894B3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A105D14D2C24426100894B3E /* AppDelegate.swift */; };
 		A105D1502C24426100894B3E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A105D14F2C24426100894B3E /* SceneDelegate.swift */; };
-		A105D1522C24426100894B3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A105D1512C24426100894B3E /* ViewController.swift */; };
+		A105D1522C24426100894B3E /* CatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A105D1512C24426100894B3E /* CatsViewController.swift */; };
 		A105D1552C24426100894B3E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A105D1542C24426100894B3E /* Base */; };
 		A105D1572C24426300894B3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A105D1562C24426300894B3E /* Assets.xcassets */; };
 		A105D15A2C24426300894B3E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A105D1592C24426300894B3E /* Base */; };
 		A105D1652C24426400894B3E /* CatsDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A105D1642C24426400894B3E /* CatsDemoTests.swift */; };
 		A105D16F2C24426400894B3E /* CatsDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A105D16E2C24426400894B3E /* CatsDemoUITests.swift */; };
 		A105D1712C24426400894B3E /* CatsDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A105D1702C24426400894B3E /* CatsDemoUITestsLaunchTests.swift */; };
+		A105D1822C247D9D00894B3E /* CatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A105D1802C247D9D00894B3E /* CatTableViewCell.swift */; };
+		A105D1832C247D9D00894B3E /* CatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A105D1812C247D9D00894B3E /* CatTableViewCell.xib */; };
+		A15AECD82C249BA800C12FA0 /* CatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECD72C249BA800C12FA0 /* CatsViewModel.swift */; };
+		A15AECDA2C249BC800C12FA0 /* CatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECD92C249BC800C12FA0 /* CatModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +43,7 @@
 		A105D14A2C24426100894B3E /* CatsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A105D14D2C24426100894B3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A105D14F2C24426100894B3E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A105D1512C24426100894B3E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A105D1512C24426100894B3E /* CatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsViewController.swift; sourceTree = "<group>"; };
 		A105D1542C24426100894B3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A105D1562C24426300894B3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A105D1592C24426300894B3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +53,10 @@
 		A105D16A2C24426400894B3E /* CatsDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatsDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A105D16E2C24426400894B3E /* CatsDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsDemoUITests.swift; sourceTree = "<group>"; };
 		A105D1702C24426400894B3E /* CatsDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A105D1802C247D9D00894B3E /* CatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatTableViewCell.swift; sourceTree = "<group>"; };
+		A105D1812C247D9D00894B3E /* CatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatTableViewCell.xib; sourceTree = "<group>"; };
+		A15AECD72C249BA800C12FA0 /* CatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsViewModel.swift; sourceTree = "<group>"; };
+		A15AECD92C249BC800C12FA0 /* CatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +107,12 @@
 		A105D14C2C24426100894B3E /* CatsDemo */ = {
 			isa = PBXGroup;
 			children = (
+				A105D17F2C245AAB00894B3E /* ViewModel */,
+				A105D17E2C245AA200894B3E /* View */,
+				A105D17D2C245A0000894B3E /* Model */,
 				A105D14D2C24426100894B3E /* AppDelegate.swift */,
 				A105D14F2C24426100894B3E /* SceneDelegate.swift */,
-				A105D1512C24426100894B3E /* ViewController.swift */,
+				A105D1512C24426100894B3E /* CatsViewController.swift */,
 				A105D1532C24426100894B3E /* Main.storyboard */,
 				A105D1562C24426300894B3E /* Assets.xcassets */,
 				A105D1582C24426300894B3E /* LaunchScreen.storyboard */,
@@ -125,6 +136,31 @@
 				A105D1702C24426400894B3E /* CatsDemoUITestsLaunchTests.swift */,
 			);
 			path = CatsDemoUITests;
+			sourceTree = "<group>";
+		};
+		A105D17D2C245A0000894B3E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A15AECD92C249BC800C12FA0 /* CatModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A105D17E2C245AA200894B3E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A105D1802C247D9D00894B3E /* CatTableViewCell.swift */,
+				A105D1812C247D9D00894B3E /* CatTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A105D17F2C245AAB00894B3E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A15AECD72C249BA800C12FA0 /* CatsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A105D1832C247D9D00894B3E /* CatTableViewCell.xib in Resources */,
 				A105D1572C24426300894B3E /* Assets.xcassets in Resources */,
 				A105D15A2C24426300894B3E /* Base in Resources */,
 				A105D1552C24426100894B3E /* Base in Resources */,
@@ -258,8 +295,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A105D1522C24426100894B3E /* ViewController.swift in Sources */,
+				A15AECDA2C249BC800C12FA0 /* CatModel.swift in Sources */,
+				A105D1822C247D9D00894B3E /* CatTableViewCell.swift in Sources */,
+				A105D1522C24426100894B3E /* CatsViewController.swift in Sources */,
 				A105D14E2C24426100894B3E /* AppDelegate.swift in Sources */,
+				A15AECD82C249BA800C12FA0 /* CatsViewModel.swift in Sources */,
 				A105D1502C24426100894B3E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
