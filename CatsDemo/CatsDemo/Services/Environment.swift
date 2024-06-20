@@ -55,6 +55,6 @@ extension Environment {
 extension Environment {
     
     /// Cat List end point
-    /// Ex: https://api.thecatapi.com/v1/images/search?api_key=live_FnELHMSHJG1IndcB0GUbULoJvTondVDgic1SmNhbFDUjIeXEKMTcrWKRtdVRVJAo
+    /// Ex: https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=beng&api_key=live_FnELHMSHJG1IndcB0GUbULoJvTondVDgic1SmNhbFDUjIeXEKMTcrWKRtdVRVJAo
     static let catList = Environment.current.baseUrlPath + "api_key=\(Environment.current.apiKey)"
 }

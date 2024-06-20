@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,40 +17,40 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JQB-S5-uNr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="174.66666666666666"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="JQB-S5-uNr" secondAttribute="height" multiplier="32:17" id="KBq-0J-e6T"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vanquis" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Imf-8g-8cd">
-                        <rect key="frame" x="16" y="182.66666666666666" width="288" height="20.333333333333343"/>
+                        <rect key="frame" x="16" y="182" width="288" height="21"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                        <color key="textColor" systemColor="systemGrayColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Bj-T4-XFd">
-                        <rect key="frame" x="276" y="0.0" width="44" height="44"/>
+                        <rect key="frame" x="276" y="0.0" width="44" height="34.333333333333336"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="44" id="5wX-et-0dg"/>
                             <constraint firstAttribute="width" constant="44" id="WQA-hP-xjJ"/>
                         </constraints>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
                     </button>
                 </subviews>
+                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                 <constraints>
+                    <constraint firstItem="Imf-8g-8cd" firstAttribute="top" secondItem="JQB-S5-uNr" secondAttribute="bottom" constant="12" id="2QP-wp-6J3"/>
                     <constraint firstAttribute="trailing" secondItem="1Bj-T4-XFd" secondAttribute="trailing" id="3g8-xG-aph"/>
-                    <constraint firstItem="Imf-8g-8cd" firstAttribute="top" secondItem="JQB-S5-uNr" secondAttribute="bottom" constant="8" id="AN4-Gg-k6j"/>
+                    <constraint firstItem="JQB-S5-uNr" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="8KJ-x8-kv2"/>
+                    <constraint firstItem="JQB-S5-uNr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9k4-aB-r4M"/>
+                    <constraint firstAttribute="bottom" secondItem="Imf-8g-8cd" secondAttribute="bottom" constant="16" id="OCO-eA-0qQ"/>
+                    <constraint firstAttribute="trailing" secondItem="JQB-S5-uNr" secondAttribute="trailing" id="Sim-X8-E2N"/>
+                    <constraint firstAttribute="trailing" secondItem="Imf-8g-8cd" secondAttribute="trailing" constant="16" id="VEh-oc-qUc"/>
+                    <constraint firstItem="JQB-S5-uNr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Yap-hf-RYk"/>
                     <constraint firstItem="1Bj-T4-XFd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fPE-5Z-FiA"/>
+                    <constraint firstItem="Imf-8g-8cd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="xbo-NN-Md5"/>
                 </constraints>
             </tableViewCellContentView>
-            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <constraints>
-                <constraint firstItem="njF-e1-oar" firstAttribute="trailing" secondItem="JQB-S5-uNr" secondAttribute="trailing" id="3x2-3h-D5S"/>
-                <constraint firstItem="njF-e1-oar" firstAttribute="bottom" secondItem="Imf-8g-8cd" secondAttribute="bottom" constant="16" id="44S-B3-sEq"/>
-                <constraint firstItem="JQB-S5-uNr" firstAttribute="top" secondItem="njF-e1-oar" secondAttribute="top" id="52p-1F-FUH"/>
-                <constraint firstItem="njF-e1-oar" firstAttribute="trailing" secondItem="Imf-8g-8cd" secondAttribute="trailing" constant="16" id="QZJ-H2-k1J"/>
-                <constraint firstItem="Imf-8g-8cd" firstAttribute="leading" secondItem="njF-e1-oar" secondAttribute="leading" constant="16" id="S9z-WO-p36"/>
-                <constraint firstItem="JQB-S5-uNr" firstAttribute="leading" secondItem="njF-e1-oar" secondAttribute="leading" id="k2C-MI-Slr"/>
-                <constraint firstItem="1Bj-T4-XFd" firstAttribute="top" secondItem="njF-e1-oar" secondAttribute="top" id="l5e-sR-bX4"/>
-            </constraints>
             <connections>
                 <outlet property="catImageView" destination="JQB-S5-uNr" id="6F4-lc-Y7x"/>
                 <outlet property="favButton" destination="1Bj-T4-XFd" id="OIl-vt-mQD"/>
@@ -62,8 +61,8 @@
     </objects>
     <resources>
         <image name="heart" catalog="system" width="128" height="107"/>
-        <systemColor name="systemGrayColor">
-            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

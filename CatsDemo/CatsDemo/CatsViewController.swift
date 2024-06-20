@@ -13,8 +13,8 @@ class CatsViewController: UIViewController {
     
     let viewModel = CatsViewModel()
     
-    let favImage = UIImage(systemName: "heart.fill")!.withTintColor(.red, renderingMode: .alwaysTemplate)
-    let unFavImage = UIImage(systemName: "heart")!.withTintColor(.red, renderingMode: .alwaysTemplate)
+    let favImage = UIImage(systemName: "heart.fill")!.withTintColor(.red, renderingMode: .automatic)
+    let unFavImage = UIImage(systemName: "heart")!.withTintColor(.red, renderingMode: .automatic)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +23,34 @@ class CatsViewController: UIViewController {
         title = "Cats Collection"
         view.accessibilityIdentifier = "catsCollection"
         catsTableView.register(UINib(nibName: "CatTableViewCell", bundle: nil), forCellReuseIdentifier: "CatTableViewCell")
-//        catsTableView.dataSource = photoDataSource
-//        catsTableView.prefetchDataSource = self
+        catsTableView.dataSource = self
+        catsTableView.delegate = self
+        catsTableView.prefetchDataSource = self
         catsTableView.rowHeight = UITableView.automaticDimension
         catsTableView.estimatedRowHeight = 320
         catsTableView.separatorStyle = .none
         catsTableView.separatorColor = .clear
+        
+        fetchRemoteCatList()
+    }
+    
+    func fetchRemoteCatList() {
+        viewModel.loadCatList { [weak self] result in
+            switch result {
+            case .success(let catList):
+                if catList.isEmpty {
+//                    self?.showErrorPrompt()
+                    return
+                }
+                
+                self?.viewModel.catModels = catList
+                DispatchQueue.main.async {
+                    self?.catsTableView.reloadData()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 
 }
@@ -40,34 +62,42 @@ extension CatsViewController: UITableViewDataSource, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellIdentifier", for: indexPath)
-        cell.textLabel?.text = "Item \(indexPath.row)"
-        cell.imageView?.image = nil // Reset image to avoid flickering
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CatTableViewCell", for: indexPath) as! CatTableViewCell
+        let item = viewModel.catModels[indexPath.row]
+        cell.nameLabel?.text = item.id
+        cell.catImageView?.image = nil // Reset image to avoid flickering
         
         // Load image for the cell
-        viewModel.image(at: indexPath) { image in
-            DispatchQueue.main.async {
-                if let currentCell = tableView.cellForRow(at: indexPath) {
-                    currentCell.imageView?.image = image
-                }
-            }
-        }
-        
+        loadCatImage(at: indexPath)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        // Load image for the cell
+        loadCatImage(at: indexPath)
     }
     
     // UITableViewDataSourcePrefetching methods
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
-            viewModel.image(at: indexPath) { _ in
-                // Prefetching image
-            }
+            loadCatImage(at: indexPath)
         }
     }
     
     func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
             viewModel.cancelImageLoad(at: indexPath)
+        }
+    }
+        
+    func loadCatImage(at indexPath: IndexPath) {
+        viewModel.image(at: indexPath) { [weak self] image in
+            DispatchQueue.main.async {
+                if let currentCell = self?.catsTableView.cellForRow(at: indexPath) as? CatTableViewCell {
+                    currentCell.catImageView?.image = image
+                }
+            }
         }
     }
 }

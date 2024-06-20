@@ -15,9 +15,13 @@ class CatsViewModel {
     var imageCache = NSCache<NSString, UIImage>()
     private var ongoingTasks = [IndexPath: URLSessionDataTask]()
     
-    func loadImages() {
-        // Load your initial data here
-        catModels = []
+    func loadCatList(completion: @escaping (Result<[CatModel], NetworkError>) -> Void) {
+        // Load your initial data here        
+        let serviceRequest = FetchCatsRequest()
+        let urlSearchParams = ServiceRequestModel(limit: 10, breedName: nil)
+        
+        serviceRequest.urlSearchParams = urlSearchParams
+        serviceRequest.fetch(completion: completion)
     }
     
     func image(at indexPath: IndexPath, completion: @escaping (UIImage?) -> Void) {
