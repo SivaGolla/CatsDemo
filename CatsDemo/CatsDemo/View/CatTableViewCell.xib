@@ -17,40 +17,41 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JQB-S5-uNr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
+                        <rect key="frame" x="16" y="16" width="288" height="154"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="JQB-S5-uNr" secondAttribute="height" multiplier="32:17" id="KBq-0J-e6T"/>
+                            <constraint firstAttribute="width" secondItem="JQB-S5-uNr" secondAttribute="height" multiplier="144:77" id="K66-q7-sYD"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vanquis" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Imf-8g-8cd">
-                        <rect key="frame" x="16" y="182" width="288" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Vanquis" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Imf-8g-8cd">
+                        <rect key="frame" x="16" y="170" width="288" height="33"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Bj-T4-XFd">
-                        <rect key="frame" x="276" y="0.0" width="44" height="34.333333333333336"/>
+                        <rect key="frame" x="270" y="16" width="34" height="34"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="44" id="WQA-hP-xjJ"/>
+                            <constraint firstAttribute="width" constant="34" id="WQA-hP-xjJ"/>
+                            <constraint firstAttribute="height" constant="34" id="cGP-AS-AqA"/>
                         </constraints>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
                     </button>
                 </subviews>
-                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                 <constraints>
-                    <constraint firstItem="Imf-8g-8cd" firstAttribute="top" secondItem="JQB-S5-uNr" secondAttribute="bottom" constant="12" id="2QP-wp-6J3"/>
-                    <constraint firstAttribute="trailing" secondItem="1Bj-T4-XFd" secondAttribute="trailing" id="3g8-xG-aph"/>
-                    <constraint firstItem="JQB-S5-uNr" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="8KJ-x8-kv2"/>
-                    <constraint firstItem="JQB-S5-uNr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9k4-aB-r4M"/>
+                    <constraint firstItem="Imf-8g-8cd" firstAttribute="top" secondItem="JQB-S5-uNr" secondAttribute="bottom" id="2QP-wp-6J3"/>
+                    <constraint firstAttribute="trailing" secondItem="1Bj-T4-XFd" secondAttribute="trailing" constant="16" id="3g8-xG-aph"/>
+                    <constraint firstItem="JQB-S5-uNr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="9k4-aB-r4M"/>
                     <constraint firstAttribute="bottom" secondItem="Imf-8g-8cd" secondAttribute="bottom" constant="16" id="OCO-eA-0qQ"/>
-                    <constraint firstAttribute="trailing" secondItem="JQB-S5-uNr" secondAttribute="trailing" id="Sim-X8-E2N"/>
+                    <constraint firstAttribute="trailing" secondItem="JQB-S5-uNr" secondAttribute="trailing" constant="16" id="Sim-X8-E2N"/>
                     <constraint firstAttribute="trailing" secondItem="Imf-8g-8cd" secondAttribute="trailing" constant="16" id="VEh-oc-qUc"/>
-                    <constraint firstItem="JQB-S5-uNr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Yap-hf-RYk"/>
-                    <constraint firstItem="1Bj-T4-XFd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fPE-5Z-FiA"/>
+                    <constraint firstItem="JQB-S5-uNr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="Yap-hf-RYk"/>
+                    <constraint firstItem="1Bj-T4-XFd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="fPE-5Z-FiA"/>
                     <constraint firstItem="Imf-8g-8cd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="xbo-NN-Md5"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="catImageView" destination="JQB-S5-uNr" id="6F4-lc-Y7x"/>
                 <outlet property="favButton" destination="1Bj-T4-XFd" id="OIl-vt-mQD"/>
@@ -61,8 +62,8 @@
     </objects>
     <resources>
         <image name="heart" catalog="system" width="128" height="107"/>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

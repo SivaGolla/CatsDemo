@@ -12,7 +12,6 @@ import UIKit
 class CatsViewModel {
     
     var catModels: [ACatViewModel] = []
-    var imageCache = NSCache<NSString, UIImage>()
     private var ongoingTasks = [IndexPath: URLSessionDataTask]()
     
     func loadCatList(completion: @escaping (Result<[CatBreed], NetworkError>) -> Void) {
@@ -31,7 +30,7 @@ class CatsViewModel {
         }
         
         // Check cache first
-        if let cachedImage = imageCache.object(forKey: imageUrlString as NSString) {
+        if let cachedImage = CatsDemoModel.imageCache.object(forKey: imageUrlString as NSString) {
             completion(cachedImage)
             return
         }
@@ -49,7 +48,7 @@ class CatsViewModel {
             }
             
             // Cache the downloaded image
-            self.imageCache.setObject(image, forKey: imageUrlString as NSString)
+            CatsDemoModel.imageCache.setObject(image, forKey: imageUrlString as NSString)
             self.ongoingTasks[indexPath] = nil
             
             // Return the downloaded image

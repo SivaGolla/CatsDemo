@@ -28,6 +28,10 @@
 		A15AECE82C24AA7100C12FA0 /* ServiceRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECE72C24AA7100C12FA0 /* ServiceRequestModel.swift */; };
 		A15AECEA2C24AF3500C12FA0 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECE92C24AF3500C12FA0 /* NetworkError.swift */; };
 		A15AECEC2C25DFE200C12FA0 /* ACatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECEB2C25DFE200C12FA0 /* ACatViewModel.swift */; };
+		A15AECEE2C25F9CF00C12FA0 /* ACatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECED2C25F9CF00C12FA0 /* ACatDetailViewController.swift */; };
+		A15AECF02C25FE6500C12FA0 /* ACatDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECEF2C25FE6500C12FA0 /* ACatDetailViewModel.swift */; };
+		A15AECF22C25FF1C00C12FA0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECF12C25FF1C00C12FA0 /* Constants.swift */; };
+		A15AECF42C26057200C12FA0 /* CatsDemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECF32C26057100C12FA0 /* CatsDemoModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,10 @@
 		A15AECE72C24AA7100C12FA0 /* ServiceRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRequestModel.swift; sourceTree = "<group>"; };
 		A15AECE92C24AF3500C12FA0 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		A15AECEB2C25DFE200C12FA0 /* ACatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACatViewModel.swift; sourceTree = "<group>"; };
+		A15AECED2C25F9CF00C12FA0 /* ACatDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACatDetailViewController.swift; sourceTree = "<group>"; };
+		A15AECEF2C25FE6500C12FA0 /* ACatDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACatDetailViewModel.swift; sourceTree = "<group>"; };
+		A15AECF12C25FF1C00C12FA0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A15AECF32C26057100C12FA0 /* CatsDemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsDemoModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +138,7 @@
 				A105D14D2C24426100894B3E /* AppDelegate.swift */,
 				A105D14F2C24426100894B3E /* SceneDelegate.swift */,
 				A105D1512C24426100894B3E /* CatsViewController.swift */,
+				A15AECED2C25F9CF00C12FA0 /* ACatDetailViewController.swift */,
 				A105D1532C24426100894B3E /* Main.storyboard */,
 				A105D1562C24426300894B3E /* Assets.xcassets */,
 				A105D1582C24426300894B3E /* LaunchScreen.storyboard */,
@@ -158,7 +167,9 @@
 		A105D17D2C245A0000894B3E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A15AECF32C26057100C12FA0 /* CatsDemoModel.swift */,
 				A15AECD92C249BC800C12FA0 /* CatBreed.swift */,
+				A15AECF12C25FF1C00C12FA0 /* Constants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -177,6 +188,7 @@
 			children = (
 				A15AECD72C249BA800C12FA0 /* CatsViewModel.swift */,
 				A15AECEB2C25DFE200C12FA0 /* ACatViewModel.swift */,
+				A15AECEF2C25FE6500C12FA0 /* ACatDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -335,9 +347,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15AECEE2C25F9CF00C12FA0 /* ACatDetailViewController.swift in Sources */,
+				A15AECF22C25FF1C00C12FA0 /* Constants.swift in Sources */,
 				A15AECDA2C249BC800C12FA0 /* CatBreed.swift in Sources */,
 				A105D1822C247D9D00894B3E /* CatTableViewCell.swift in Sources */,
 				A105D1522C24426100894B3E /* CatsViewController.swift in Sources */,
+				A15AECF42C26057200C12FA0 /* CatsDemoModel.swift in Sources */,
 				A15AECDD2C24A0DC00C12FA0 /* NetworkManager.swift in Sources */,
 				A15AECE12C24A59700C12FA0 /* Environment.swift in Sources */,
 				A105D14E2C24426100894B3E /* AppDelegate.swift in Sources */,
@@ -346,6 +361,7 @@
 				A15AECE82C24AA7100C12FA0 /* ServiceRequestModel.swift in Sources */,
 				A15AECD82C249BA800C12FA0 /* CatsViewModel.swift in Sources */,
 				A15AECE32C24A84B00C12FA0 /* Request.swift in Sources */,
+				A15AECF02C25FE6500C12FA0 /* ACatDetailViewModel.swift in Sources */,
 				A15AECEA2C24AF3500C12FA0 /* NetworkError.swift in Sources */,
 				A105D1502C24426100894B3E /* SceneDelegate.swift in Sources */,
 				A15AECDF2C24A15F00C12FA0 /* FetchCatsRequest.swift in Sources */,

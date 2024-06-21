@@ -52,6 +52,15 @@ class CatsViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "LoadCatDetails" {
+            
+            let viewModel = ACatDetailViewModel(model: (sender as! CatBreed))
+            let destinationViewController = segue.destination as! ACatDetailViewController
+            destinationViewController.viewModel = viewModel
+        }
+    }
 
 }
 
@@ -74,8 +83,13 @@ extension CatsViewController: UITableViewDataSource, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
+        cell.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
         // Load image for the cell
         loadCatImage(at: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, layoutMarginsForRowAt indexPath: IndexPath) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
     }
     
     // UITableViewDataSourcePrefetching methods
@@ -91,11 +105,17 @@ extension CatsViewController: UITableViewDataSource, UITableViewDelegate, UITabl
         }
     }
         
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "LoadCatDetails", sender: viewModel.catModels[indexPath.row].model)
+    }
+    
     func loadCatImage(at indexPath: IndexPath) {
         viewModel.image(at: indexPath) { [weak self] image in
             DispatchQueue.main.async {
                 if let currentCell = self?.catsTableView.cellForRow(at: indexPath) as? CatTableViewCell {
                     currentCell.catImageView?.image = image
+                    currentCell.setNeedsLayout()
                 }
             }
         }

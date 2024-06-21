@@ -20,7 +20,10 @@ class CatTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        catImageView.layer.cornerRadius = 5
+        contentView.layer.cornerRadius = 5
+        contentView.layer.cornerCurve = .continuous
+        contentView.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
