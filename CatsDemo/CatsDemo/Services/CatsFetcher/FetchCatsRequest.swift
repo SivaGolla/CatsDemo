@@ -23,28 +23,42 @@ class FetchCatsRequest: ServiceProviding {
     /// Populates request based on query parameters
     /// Also saves a formatted request into ApodDataStorage
     /// - Returns: Request
-    func makeRequest() -> Request {
+    func makeRequest() -> Request? {
         
-        var reqUrlPath = Environment.catList
-        
+        guard var urlComponents = URLComponents(string: Environment.catBreedList) else {
+            return nil
+        }
+
+        var queryParams: [URLQueryItem] = []
         if let requestParams = urlSearchParams {
             if let limit = requestParams.limit {
-                reqUrlPath = reqUrlPath + "&limit=\(limit)"
+                queryParams.append(URLQueryItem(name: "limit", value: "\(limit)"))
             }
             
-            if let breedName = requestParams.breedName {
-                reqUrlPath = reqUrlPath + "&breed_ids=\(breedName)"
+            if let page = requestParams.page {
+                queryParams.append(URLQueryItem(name: "page", value: "\(page)"))
             }
         }
         
-        let request = Request(path: reqUrlPath, method: .get, contentType: "application/json", headerParams: nil, type: .cats, body: nil)
+        queryParams.append(URLQueryItem(name: "api_key", value: Environment.current.apiKey))
+        urlComponents.queryItems = queryParams
+
+        guard let urlPath = urlComponents.url?.absoluteString else {
+            return nil
+        }
+        
+        let request = Request(path: urlPath, method: .get, contentType: "application/json", headerParams: nil, type: .cats, body: nil)
         return request
     }
     
     /// Generic implementation of fetch APOD service
     func fetch<T>(completion: @escaping (Result<T, NetworkError>) -> Void) where T : Decodable {
         
-        let request = makeRequest()
+        guard let request = makeRequest() else {
+            completion(.failure(.invalidUrl))
+            return
+        }
+        
         NetworkManager(session: activeSession).execute(request: request) { result in
             DispatchQueue.main.async {
                 completion(result)

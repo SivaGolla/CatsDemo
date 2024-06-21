@@ -9,5 +9,5 @@ import Foundation
 
 struct ServiceRequestModel {
     let limit: Int?
-    let breedName: String?
+    let page: Int?
 }

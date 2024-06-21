@@ -43,7 +43,7 @@ class CatsViewController: UIViewController {
                     return
                 }
                 
-                self?.viewModel.catModels = catList
+                self?.viewModel.catModels = catList.compactMap { ACatViewModel(model: $0) }
                 DispatchQueue.main.async {
                     self?.catsTableView.reloadData()
                 }
@@ -64,7 +64,7 @@ extension CatsViewController: UITableViewDataSource, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CatTableViewCell", for: indexPath) as! CatTableViewCell
         let item = viewModel.catModels[indexPath.row]
-        cell.nameLabel?.text = item.id
+        cell.viewModel = item
         cell.catImageView?.image = nil // Reset image to avoid flickering
         
         // Load image for the cell

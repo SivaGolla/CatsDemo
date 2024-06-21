@@ -24,7 +24,7 @@ class NetworkManager: NSObject {
     func execute<T: Decodable>(request: Request, completion: @escaping (Result<T, NetworkError>) -> Void) -> URLSessionDataTask? {
         
         guard let path = request.path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: path) else {
-            completion(.failure(.urlError))
+            completion(.failure(.invalidUrl))
             return nil
         }
         

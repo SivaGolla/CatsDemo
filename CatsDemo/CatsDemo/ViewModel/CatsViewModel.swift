@@ -11,21 +11,24 @@ import UIKit
 
 class CatsViewModel {
     
-    var catModels: [CatModel] = []
+    var catModels: [ACatViewModel] = []
     var imageCache = NSCache<NSString, UIImage>()
     private var ongoingTasks = [IndexPath: URLSessionDataTask]()
     
-    func loadCatList(completion: @escaping (Result<[CatModel], NetworkError>) -> Void) {
-        // Load your initial data here        
+    func loadCatList(completion: @escaping (Result<[CatBreed], NetworkError>) -> Void) {
+        // Load your initial data here
         let serviceRequest = FetchCatsRequest()
-        let urlSearchParams = ServiceRequestModel(limit: 10, breedName: nil)
+        let urlSearchParams = ServiceRequestModel(limit: nil, page: nil)
         
         serviceRequest.urlSearchParams = urlSearchParams
         serviceRequest.fetch(completion: completion)
     }
     
     func image(at indexPath: IndexPath, completion: @escaping (UIImage?) -> Void) {
-        let imageUrlString = catModels[indexPath.row].url
+        guard let imageUrlString = catModels[indexPath.row].model.image?.url else {
+            completion(nil)
+            return
+        }
         
         // Check cache first
         if let cachedImage = imageCache.object(forKey: imageUrlString as NSString) {

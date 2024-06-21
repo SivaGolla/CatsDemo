@@ -32,9 +32,9 @@ extension Environment {
     var baseUrlPath: String {
         switch self {
         case .prod:
-            return "https://api.thecatapi.com/v1/images/search?"
+            return "https://api.thecatapi.com/v1/"
         default:
-            return "https://api.thecatapi.com/v1/images/search?"
+            return "https://api.thecatapi.com/v1/"
         }
     }
     
@@ -56,5 +56,5 @@ extension Environment {
     
     /// Cat List end point
     /// Ex: https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=beng&api_key=live_FnELHMSHJG1IndcB0GUbULoJvTondVDgic1SmNhbFDUjIeXEKMTcrWKRtdVRVJAo
-    static let catList = Environment.current.baseUrlPath + "api_key=\(Environment.current.apiKey)"
+    static let catBreedList = Environment.current.baseUrlPath + "breeds?"
 }
