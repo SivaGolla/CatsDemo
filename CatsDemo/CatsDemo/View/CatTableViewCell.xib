@@ -36,6 +36,9 @@
                         </constraints>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system"/>
+                        <connections>
+                            <action selector="didSelectFavButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="aa0-88-LuB"/>
+                        </connections>
                     </button>
                 </subviews>
                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>

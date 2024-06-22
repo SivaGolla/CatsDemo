@@ -57,4 +57,5 @@ extension Environment {
     /// Cat List end point
     /// Ex: https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=beng&api_key=live_FnELHMSHJG1IndcB0GUbULoJvTondVDgic1SmNhbFDUjIeXEKMTcrWKRtdVRVJAo
     static let catBreedList = Environment.current.baseUrlPath + "breeds?"
+    static let favouriteCats = Environment.current.baseUrlPath + "favourites"
 }

@@ -11,12 +11,16 @@ import Foundation
 enum RequestMethod: String {
     case get = "GET"
     case post = "POST"
+    case del = "DEL"
 }
 
 /// Defines supported request types
 /// Add more cases as required
 enum RequestType {
     case cats
+    case getFavs
+    case favItems
+    case unFavItem
 }
 
 /// Requesting protocol

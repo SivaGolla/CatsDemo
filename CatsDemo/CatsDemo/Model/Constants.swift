@@ -6,8 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
 enum Constants {
+    
+    static let favImage = UIImage(systemName: "heart.fill")!.withTintColor(.red, renderingMode: .automatic)
+    static let unFavImage = UIImage(systemName: "heart")!.withTintColor(.red, renderingMode: .automatic)
     
     static func emojiFlag(from countryCode: String) -> String {
         let base: UInt32 = 127397

@@ -1,5 +1,5 @@
 //
-//  FetchCatsRequest.swift
+//  FetchCatsService.swift
 //  CatsDemo
 //
 //  Created by Venkata Sivannarayana Golla on 20/06/24.
@@ -7,21 +7,11 @@
 
 import Foundation
 
-/// Service Request to fetch Astronomy Picture of the day service
-class FetchCatsRequest: ServiceProviding {
+/// Service Request to fetch Cats
+class FetchCatsService: ServiceProviding {
     var urlSearchParams: ServiceRequestModel?
     
-    var activeSession: URLSession = {
-        let config:URLSessionConfiguration = URLSessionConfiguration.default
-        config.requestCachePolicy = .reloadIgnoringLocalCacheData
-        config.urlCache = nil
-        config.timeoutIntervalForRequest = 30
-        config.timeoutIntervalForResource = 30
-        return URLSession(configuration: config)
-    }()
-    
     /// Populates request based on query parameters
-    /// Also saves a formatted request into ApodDataStorage
     /// - Returns: Request
     func makeRequest() -> Request? {
         
@@ -51,7 +41,7 @@ class FetchCatsRequest: ServiceProviding {
         return request
     }
     
-    /// Generic implementation of fetch APOD service
+    /// Generic implementation of fetch Cats service
     func fetch<T>(completion: @escaping (Result<T, NetworkError>) -> Void) where T : Decodable {
         
         guard let request = makeRequest() else {
@@ -59,11 +49,10 @@ class FetchCatsRequest: ServiceProviding {
             return
         }
         
-        NetworkManager(session: activeSession).execute(request: request) { result in
+        NetworkManager(session: CatsDemoModel.activeSession).execute(request: request) { result in
             DispatchQueue.main.async {
                 completion(result)
             }
         }
     }
-    
 }

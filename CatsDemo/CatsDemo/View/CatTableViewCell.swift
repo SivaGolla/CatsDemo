@@ -43,7 +43,10 @@ class CatTableViewCell: UITableViewCell {
         guard let viewModel = viewModel else { return }
         
         nameLabel.text = viewModel.name
-//        catImageView.image = nil
-//        favButton.setImage(nil, for: .normal)
+        favButton.setImage(viewModel.isFavorite ? Constants.favImage : Constants.unFavImage, for: .normal)
+    }
+    
+    @IBAction func didSelectFavButton(_ sender: Any) {
+        
     }
 }

@@ -11,15 +11,35 @@ import UIKit
 
 class CatsViewModel {
     
-    var catModels: [ACatViewModel] = []
+    var itemsDidChange: (() -> Void)?
+    var failedToLoadItems: ((NetworkError) -> Void)?
+    
+    var catModels: [ACatViewModel] = [] {
+        didSet {
+            itemsDidChange?()
+        }
+    }
+    
     private var ongoingTasks = [IndexPath: URLSessionDataTask]()
     
-    func loadCatList(completion: @escaping (Result<[CatBreed], NetworkError>) -> Void) {
+    func loadCatList() {
         // Load your initial data here
-        let serviceRequest = FetchCatsRequest()
-        let urlSearchParams = ServiceRequestModel(limit: nil, page: nil)
+        let serviceRequest = FetchCatsService()
+        let urlSearchParams = ServiceRequestModel(limit: nil, page: nil, favId: nil)
         
         serviceRequest.urlSearchParams = urlSearchParams
+        
+        let completion: (Result<[CatBreed], NetworkError>) -> Void = { [weak self] result in
+            
+            switch result {
+            case .success(let catList):
+                self?.catModels = catList.compactMap { ACatViewModel(model: $0) }
+            case .failure(let error):
+                print(error.localizedDescription)
+                self?.failedToLoadItems?(error)
+            }
+        }
+        
         serviceRequest.fetch(completion: completion)
     }
     
@@ -63,5 +83,13 @@ class CatsViewModel {
             task.cancel()
             ongoingTasks[indexPath] = nil
         }
+    }
+    
+    func toggleFavorite(at indexPath: IndexPath) {
+        catModels[indexPath.row].isFavorite.toggle()
+    }
+    
+    func isFavorite(at indexPath: IndexPath) -> Bool {
+        return catModels[indexPath.row].isFavorite
     }
 }

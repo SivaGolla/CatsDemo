@@ -9,19 +9,16 @@ import Foundation
 
 final class ACatViewModel {
     
+    let model: CatBreed
+
     var name: String {
         model.name
     }
 
-    let model: CatBreed
+    var isFavorite: Bool = false
 
-    var imageURL: URL? {
-        guard let imageID = model.referenceImageID else { return nil }
-        return Self.imageURLCache.object(forKey: imageID as NSString) as URL?
-    }
-
-    private static let imageURLCache = NSCache<NSString, NSURL>()
-
+    var modelDidChange: (() -> Void)?
+    
     init(model: CatBreed) {
         self.model = model
     }

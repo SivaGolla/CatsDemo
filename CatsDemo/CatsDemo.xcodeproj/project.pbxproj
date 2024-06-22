@@ -21,7 +21,7 @@
 		A15AECD82C249BA800C12FA0 /* CatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECD72C249BA800C12FA0 /* CatsViewModel.swift */; };
 		A15AECDA2C249BC800C12FA0 /* CatBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECD92C249BC800C12FA0 /* CatBreed.swift */; };
 		A15AECDD2C24A0DC00C12FA0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECDC2C24A0DC00C12FA0 /* NetworkManager.swift */; };
-		A15AECDF2C24A15F00C12FA0 /* FetchCatsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECDE2C24A15F00C12FA0 /* FetchCatsRequest.swift */; };
+		A15AECDF2C24A15F00C12FA0 /* FetchCatsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECDE2C24A15F00C12FA0 /* FetchCatsService.swift */; };
 		A15AECE12C24A59700C12FA0 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECE02C24A59700C12FA0 /* Environment.swift */; };
 		A15AECE32C24A84B00C12FA0 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECE22C24A84B00C12FA0 /* Request.swift */; };
 		A15AECE62C24AA2F00C12FA0 /* ServiceProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECE52C24AA2F00C12FA0 /* ServiceProviding.swift */; };
@@ -32,6 +32,7 @@
 		A15AECF02C25FE6500C12FA0 /* ACatDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECEF2C25FE6500C12FA0 /* ACatDetailViewModel.swift */; };
 		A15AECF22C25FF1C00C12FA0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECF12C25FF1C00C12FA0 /* Constants.swift */; };
 		A15AECF42C26057200C12FA0 /* CatsDemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECF32C26057100C12FA0 /* CatsDemoModel.swift */; };
+		A15AECF72C27362100C12FA0 /* CatFavouriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECF62C27362100C12FA0 /* CatFavouriteService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +71,7 @@
 		A15AECD72C249BA800C12FA0 /* CatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsViewModel.swift; sourceTree = "<group>"; };
 		A15AECD92C249BC800C12FA0 /* CatBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreed.swift; sourceTree = "<group>"; };
 		A15AECDC2C24A0DC00C12FA0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		A15AECDE2C24A15F00C12FA0 /* FetchCatsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCatsRequest.swift; sourceTree = "<group>"; };
+		A15AECDE2C24A15F00C12FA0 /* FetchCatsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCatsService.swift; sourceTree = "<group>"; };
 		A15AECE02C24A59700C12FA0 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		A15AECE22C24A84B00C12FA0 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		A15AECE52C24AA2F00C12FA0 /* ServiceProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProviding.swift; sourceTree = "<group>"; };
@@ -81,6 +82,7 @@
 		A15AECEF2C25FE6500C12FA0 /* ACatDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACatDetailViewModel.swift; sourceTree = "<group>"; };
 		A15AECF12C25FF1C00C12FA0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A15AECF32C26057100C12FA0 /* CatsDemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsDemoModel.swift; sourceTree = "<group>"; };
+		A15AECF62C27362100C12FA0 /* CatFavouriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFavouriteService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 		A15AECDB2C24A0BE00C12FA0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A15AECF52C2735F900C12FA0 /* CatFavourites */,
 				A15AECE42C24A9FC00C12FA0 /* CatsFetcher */,
 				A15AECDC2C24A0DC00C12FA0 /* NetworkManager.swift */,
 				A15AECE02C24A59700C12FA0 /* Environment.swift */,
@@ -209,10 +212,18 @@
 		A15AECE42C24A9FC00C12FA0 /* CatsFetcher */ = {
 			isa = PBXGroup;
 			children = (
-				A15AECDE2C24A15F00C12FA0 /* FetchCatsRequest.swift */,
+				A15AECDE2C24A15F00C12FA0 /* FetchCatsService.swift */,
 				A15AECE72C24AA7100C12FA0 /* ServiceRequestModel.swift */,
 			);
 			path = CatsFetcher;
+			sourceTree = "<group>";
+		};
+		A15AECF52C2735F900C12FA0 /* CatFavourites */ = {
+			isa = PBXGroup;
+			children = (
+				A15AECF62C27362100C12FA0 /* CatFavouriteService.swift */,
+			);
+			path = CatFavourites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15AECF72C27362100C12FA0 /* CatFavouriteService.swift in Sources */,
 				A15AECEE2C25F9CF00C12FA0 /* ACatDetailViewController.swift in Sources */,
 				A15AECF22C25FF1C00C12FA0 /* Constants.swift in Sources */,
 				A15AECDA2C249BC800C12FA0 /* CatBreed.swift in Sources */,
@@ -364,7 +376,7 @@
 				A15AECF02C25FE6500C12FA0 /* ACatDetailViewModel.swift in Sources */,
 				A15AECEA2C24AF3500C12FA0 /* NetworkError.swift in Sources */,
 				A105D1502C24426100894B3E /* SceneDelegate.swift in Sources */,
-				A15AECDF2C24A15F00C12FA0 /* FetchCatsRequest.swift in Sources */,
+				A15AECDF2C24A15F00C12FA0 /* FetchCatsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

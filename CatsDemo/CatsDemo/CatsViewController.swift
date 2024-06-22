@@ -13,9 +13,6 @@ class CatsViewController: UIViewController {
     
     let viewModel = CatsViewModel()
     
-    let favImage = UIImage(systemName: "heart.fill")!.withTintColor(.red, renderingMode: .automatic)
-    let unFavImage = UIImage(systemName: "heart")!.withTintColor(.red, renderingMode: .automatic)
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -31,26 +28,17 @@ class CatsViewController: UIViewController {
         catsTableView.separatorStyle = .none
         catsTableView.separatorColor = .clear
         
-        fetchRemoteCatList()
-    }
-    
-    func fetchRemoteCatList() {
-        viewModel.loadCatList { [weak self] result in
-            switch result {
-            case .success(let catList):
-                if catList.isEmpty {
-//                    self?.showErrorPrompt()
-                    return
-                }
-                
-                self?.viewModel.catModels = catList.compactMap { ACatViewModel(model: $0) }
-                DispatchQueue.main.async {
-                    self?.catsTableView.reloadData()
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
+        viewModel.itemsDidChange = {
+            DispatchQueue.main.async {
+                self.catsTableView.reloadData()
             }
         }
+        
+        viewModel.failedToLoadItems = { error in
+            // self?.showErrorPrompt()
+            print("Error during cat list fetch")
+        }
+        viewModel.loadCatList()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -83,13 +71,8 @@ extension CatsViewController: UITableViewDataSource, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        cell.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
         // Load image for the cell
         loadCatImage(at: indexPath)
-    }
-    
-    func tableView(_ tableView: UITableView, layoutMarginsForRowAt indexPath: IndexPath) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
     }
     
     // UITableViewDataSourcePrefetching methods
