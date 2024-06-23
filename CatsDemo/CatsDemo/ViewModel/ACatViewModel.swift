@@ -16,7 +16,8 @@ final class ACatViewModel {
     }
 
     var isFavorite: Bool = false
-
+    var favID: Int = 0
+    
     var modelDidChange: (() -> Void)?
     
     init(model: CatBreed) {

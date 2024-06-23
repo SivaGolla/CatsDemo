@@ -11,7 +11,7 @@ import Foundation
 enum RequestMethod: String {
     case get = "GET"
     case post = "POST"
-    case del = "DEL"
+    case del = "DELETE"
 }
 
 /// Defines supported request types

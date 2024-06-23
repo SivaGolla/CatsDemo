@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol CatTableViewCellDelegate: AnyObject {
+    func toggleFavButton(favID: String?, catBreed: CatBreed, type: FavOpType)
+}
+
 class CatTableViewCell: UITableViewCell {
     @IBOutlet weak var catImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var favButton: UIButton!
         
+    weak var delegate: CatTableViewCellDelegate? = nil
+    
     var viewModel: ACatViewModel? {
         didSet {
             viewModelDidChange()
@@ -47,6 +53,12 @@ class CatTableViewCell: UITableViewCell {
     }
     
     @IBAction func didSelectFavButton(_ sender: Any) {
+        guard let viewModel = viewModel else {
+            return
+        }
         
+        delegate?.toggleFavButton(favID: "\(viewModel.favID)",
+                                  catBreed: viewModel.model,
+                                  type: viewModel.isFavorite ? FavOpType.remove : FavOpType.update)
     }
 }

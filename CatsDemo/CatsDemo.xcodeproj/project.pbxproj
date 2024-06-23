@@ -33,6 +33,8 @@
 		A15AECF22C25FF1C00C12FA0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECF12C25FF1C00C12FA0 /* Constants.swift */; };
 		A15AECF42C26057200C12FA0 /* CatsDemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECF32C26057100C12FA0 /* CatsDemoModel.swift */; };
 		A15AECF72C27362100C12FA0 /* CatFavouriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECF62C27362100C12FA0 /* CatFavouriteService.swift */; };
+		A15AECF92C274F2C00C12FA0 /* CatFavResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECF82C274F2C00C12FA0 /* CatFavResponse.swift */; };
+		A15AECFB2C27525200C12FA0 /* FavoriteCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECFA2C27525200C12FA0 /* FavoriteCat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		A15AECF12C25FF1C00C12FA0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A15AECF32C26057100C12FA0 /* CatsDemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsDemoModel.swift; sourceTree = "<group>"; };
 		A15AECF62C27362100C12FA0 /* CatFavouriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFavouriteService.swift; sourceTree = "<group>"; };
+		A15AECF82C274F2C00C12FA0 /* CatFavResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFavResponse.swift; sourceTree = "<group>"; };
+		A15AECFA2C27525200C12FA0 /* FavoriteCat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +226,8 @@
 			isa = PBXGroup;
 			children = (
 				A15AECF62C27362100C12FA0 /* CatFavouriteService.swift */,
+				A15AECF82C274F2C00C12FA0 /* CatFavResponse.swift */,
+				A15AECFA2C27525200C12FA0 /* FavoriteCat.swift */,
 			);
 			path = CatFavourites;
 			sourceTree = "<group>";
@@ -365,7 +371,9 @@
 				A105D1822C247D9D00894B3E /* CatTableViewCell.swift in Sources */,
 				A105D1522C24426100894B3E /* CatsViewController.swift in Sources */,
 				A15AECF42C26057200C12FA0 /* CatsDemoModel.swift in Sources */,
+				A15AECF92C274F2C00C12FA0 /* CatFavResponse.swift in Sources */,
 				A15AECDD2C24A0DC00C12FA0 /* NetworkManager.swift in Sources */,
+				A15AECFB2C27525200C12FA0 /* FavoriteCat.swift in Sources */,
 				A15AECE12C24A59700C12FA0 /* Environment.swift in Sources */,
 				A105D14E2C24426100894B3E /* AppDelegate.swift in Sources */,
 				A15AECE62C24AA2F00C12FA0 /* ServiceProviding.swift in Sources */,

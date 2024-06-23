@@ -10,7 +10,6 @@ import UIKit
 
 class CatsDemoModel {
     static var imageCache = NSCache<NSString, UIImage>()
-
     static var activeSession: URLSession = {
         let config:URLSessionConfiguration = URLSessionConfiguration.default
         config.requestCachePolicy = .reloadIgnoringLocalCacheData

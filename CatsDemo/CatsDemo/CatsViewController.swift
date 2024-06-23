@@ -29,16 +29,14 @@ class CatsViewController: UIViewController {
         catsTableView.separatorColor = .clear
         
         viewModel.itemsDidChange = {
-            DispatchQueue.main.async {
-                self.catsTableView.reloadData()
-            }
+            self.catsTableView.reloadData()
         }
         
-        viewModel.failedToLoadItems = { error in
+        viewModel.serviceDidFailed = { error in
             // self?.showErrorPrompt()
             print("Error during cat list fetch")
         }
-        viewModel.loadCatList()
+        viewModel.fetchAllCatsWithFavs()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -63,7 +61,8 @@ extension CatsViewController: UITableViewDataSource, UITableViewDelegate, UITabl
         let item = viewModel.catModels[indexPath.row]
         cell.viewModel = item
         cell.catImageView?.image = nil // Reset image to avoid flickering
-        
+        cell.delegate = self
+
         // Load image for the cell
         loadCatImage(at: indexPath)
         return cell
@@ -105,4 +104,9 @@ extension CatsViewController: UITableViewDataSource, UITableViewDelegate, UITabl
     }
 }
 
+extension CatsViewController: CatTableViewCellDelegate {
+    func toggleFavButton(favID: String?, catBreed: CatBreed, type: FavOpType) {
+        viewModel.toggleFavorite(favID: favID, catBreed: catBreed, type: type)
+    }
+}
 

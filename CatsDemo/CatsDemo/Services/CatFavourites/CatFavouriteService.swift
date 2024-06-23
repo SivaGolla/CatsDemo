@@ -7,15 +7,16 @@
 
 import Foundation
 
+enum FavOpType {
+    case fetch
+    case update
+    case remove
+}
+
 class CatFavouriteService: ServiceProviding {
     var urlSearchParams: ServiceRequestModel?
     var bodyParams: CatFavRequestModel?
 
-    enum FavOpType {
-        case fetch
-        case update
-        case remove
-    }
     let type: FavOpType
     
     init(urlSearchParams: ServiceRequestModel? = nil, type: FavOpType) {
@@ -27,11 +28,12 @@ class CatFavouriteService: ServiceProviding {
     /// - Returns: Request
     func makeRequest() -> Request? {
         
-        guard var urlComponents = URLComponents(string: Environment.catBreedList) else {
-            return nil
-        }
+        var urlPath = Environment.favouriteCats
+//        guard var urlComponents = URLComponents(string: Environment.favouriteCats) else {
+//            return nil
+//        }
 
-        var queryParams: [URLQueryItem] = []
+//        var queryParams: [URLQueryItem] = []
         
         let requestType: RequestType
         var requestBody: Data? = nil
@@ -50,17 +52,18 @@ class CatFavouriteService: ServiceProviding {
             
             if let requestParams = urlSearchParams {
                 if let favId = requestParams.favId {
-                    queryParams.append(URLQueryItem(name: "favourite_id", value: favId))
+                    urlPath.append("/\(favId)")
+//                    queryParams.append(URLQueryItem(name: "favourite_id", value: favId))
                 }
             }
         }
         
         let headerParams = ["x-api-key": Environment.current.apiKey]
         
-        urlComponents.queryItems = queryParams
-        guard let urlPath = urlComponents.url?.absoluteString else {
-            return nil
-        }
+//        urlComponents.queryItems = queryParams
+//        guard let urlPath = urlComponents.url?.absoluteString else {
+//            return nil
+//        }
         
         let request = Request(path: urlPath, method: httpMethod, contentType: "application/json", headerParams: headerParams, type: requestType, body: requestBody)
         return request
