@@ -9,6 +9,12 @@ import Foundation
 import UIKit
 
 final class ACatDetailViewModel {
+    
+    enum Constant {
+        static let wikiNotAvailable = "No Wikipedia link available."
+        static let unknownCountry = "Unknown origin"
+    }
+    
     private var ongoingTask: URLSessionDataTask?
     
     var titleText: String {
@@ -23,18 +29,22 @@ final class ACatDetailViewModel {
 
     var linkText: String {
         guard let wikipediaLink = model.wikipediaURL, !wikipediaLink.isEmpty else {
-            return "No Wikipedia link available."
+            return Constant.wikiNotAvailable
         }
 
-        return String(format: "Wikipedia link: %@", wikipediaLink)
+        return String(format: "\(Constants.wikiHeader)%@", wikipediaLink)
     }
 
+    var wikiLink: String {
+        return model.wikipediaURL ?? ""
+    }
+    
     private var originText: String {
         guard let countryCode = model.countryCode, countryCode.isEmpty == false else {
-            return "Unknown origin"
+            return model.origin ?? Constant.unknownCountry
         }
 
-        return String(format: "Country of origin: %@", Constants.emojiFlag(from: countryCode))
+        return String(format: "Country of origin: \(model.origin ?? "") %@", Constants.emojiFlag(from: countryCode))
     }
 
     private var temperamentText: String {
@@ -58,7 +68,7 @@ final class ACatDetailViewModel {
     
     func loadRemoteImage(completion: @escaping (UIImage?) -> Void) {
         guard let imageUrlString = model.image?.url else {
-            completion(nil)
+            completion(Constants.placeholderImage)
             return
         }
         
@@ -70,13 +80,13 @@ final class ACatDetailViewModel {
         
         // Download image if not cached
         guard let imageUrl = URL(string: imageUrlString) else {
-            completion(nil)
+            completion(Constants.placeholderImage)
             return
         }
         
         let task = URLSession.shared.dataTask(with: imageUrl) { [weak self] data, response, error in
             guard let data = data, error == nil, let image = UIImage(data: data) else {
-                completion(nil)
+                completion(Constants.placeholderImage)
                 return
             }
             

@@ -1,4 +1,4 @@
-# Cats Demo using The Cat API - Swift MVVM Example
+# Whisker World - Dive into the world of whiskers and paws
 
 This project demonstrates how to use [The Cat API](https://thecatapi.com/) to display a list of cat images in an iOS application. The app is built using the MVVM (Model-View-ViewModel) architecture pattern in Swift.
 

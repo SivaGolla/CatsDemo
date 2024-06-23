@@ -29,6 +29,12 @@ class CatsViewModel {
 //        }
         
         group.notify(queue: .main) {
+            
+            if self.catModels.isEmpty {
+                self.serviceDidFailed?(.noData)
+                return
+            }
+            
             if self.favCats.isEmpty {
                 self.itemsDidChange?()
                 return
@@ -90,7 +96,7 @@ class CatsViewModel {
     
     func image(at indexPath: IndexPath, completion: @escaping (UIImage?) -> Void) {
         guard let imageUrlString = catModels[indexPath.row].model.image?.url else {
-            completion(nil)
+            completion(Constants.placeholderImage)
             return
         }
         
@@ -102,13 +108,13 @@ class CatsViewModel {
         
         // Download image if not cached
         guard let imageUrl = URL(string: imageUrlString) else {
-            completion(nil)
+            completion(Constants.placeholderImage)
             return
         }
         
         let task = URLSession.shared.dataTask(with: imageUrl) { data, response, error in
             guard let data = data, error == nil, let image = UIImage(data: data) else {
-                completion(nil)
+                completion(Constants.placeholderImage)
                 return
             }
             

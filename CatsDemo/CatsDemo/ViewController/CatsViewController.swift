@@ -19,6 +19,8 @@ class CatsViewController: UIViewController {
         
         configureView()
         bindViewModel()
+        
+        LoadingView.start()
         viewModel.fetchAllCatsWithFavs()
     }
     
@@ -35,7 +37,7 @@ class CatsViewController: UIViewController {
 // MARK: - Private Methods
 extension CatsViewController {
     private func configureView() {
-        title = "Cats Collection"
+        title = "Whisker World"
         view.accessibilityIdentifier = "catsCollection"
         catsTableView.register(UINib(nibName: "CatTableViewCell", bundle: nil), forCellReuseIdentifier: "CatTableViewCell")
         catsTableView.dataSource = self
@@ -49,11 +51,17 @@ extension CatsViewController {
     
     private func bindViewModel() {
         viewModel.itemsDidChange = {
+            LoadingView.stop()
             self.catsTableView.reloadData()
         }
         
         viewModel.serviceDidFailed = { error in
             // self?.showErrorPrompt()
+            
+            DispatchQueue.main.async {
+                LoadingView.stop()
+            }
+            
             print("Error during cat list fetch")
         }
     }
