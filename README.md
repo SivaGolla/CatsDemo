@@ -77,7 +77,6 @@ This project demonstrates how to use [The Cat API](https://thecatapi.com/) to di
     class ACatDetailViewModel {
         - View model for a cat detail page
     }
-}
     ```
 
 3. **View**: Displays the data and handles user interactions.
