@@ -15,7 +15,7 @@ class CatsViewModel {
     var serviceDidFailed: ((NetworkError) -> Void)?
     
     var catModels: [ACatViewModel] = []
-    var favCats: [FavoriteCat] = []
+    private var favCats: [FavoriteCat] = []
     
     private var ongoingTasks = [IndexPath: URLSessionDataTask]()
     private var group: DispatchGroup = DispatchGroup()
@@ -46,7 +46,7 @@ class CatsViewModel {
         }
     }
     
-    func loadCatList() {
+    private func loadCatList() {
         // Load your initial data here
         group.enter()
         let serviceRequest = FetchCatsService()
@@ -69,7 +69,7 @@ class CatsViewModel {
         serviceRequest.fetch(completion: completion)
     }
     
-    func loadFavoriteCats() {
+    private func loadFavoriteCats() {
         group.enter()
         let serviceRequest = CatFavouriteService(type: .fetch)
         let completion: (Result<[FavoriteCat], NetworkError>) -> Void = { [weak self] result in
@@ -95,7 +95,7 @@ class CatsViewModel {
         }
         
         // Check cache first
-        if let cachedImage = CatsDemoModel.imageCache.object(forKey: imageUrlString as NSString) {
+        if let cachedImage = UserSession.imageCache.object(forKey: imageUrlString as NSString) {
             completion(cachedImage)
             return
         }
@@ -113,7 +113,7 @@ class CatsViewModel {
             }
             
             // Cache the downloaded image
-            CatsDemoModel.imageCache.setObject(image, forKey: imageUrlString as NSString)
+            UserSession.imageCache.setObject(image, forKey: imageUrlString as NSString)
             self.ongoingTasks[indexPath] = nil
             
             // Return the downloaded image
@@ -130,7 +130,7 @@ class CatsViewModel {
         }
     }
     
-    func toggleFavorite(favID: String?, catBreed: CatBreed, type: FavOpType) {
+    func toggleFavourite(favID: String?, catBreed: CatBreed, type: FavOpType) {
         guard let favID = favID,
               !favID.isEmpty,
               let imageID = catBreed.referenceImageID,
@@ -158,9 +158,5 @@ class CatsViewModel {
         }
         
         serviceRequest.fetch(completion: completion)
-    }
-    
-    func isFavorite(at indexPath: IndexPath) -> Bool {
-        return catModels[indexPath.row].isFavorite
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - FetchAllFavCatsResponse
+// MARK: - FavoriteCat
 struct FavoriteCat: Codable {
     let id: Int
     let userID, imageID: String

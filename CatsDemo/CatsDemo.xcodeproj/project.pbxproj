@@ -31,7 +31,7 @@
 		A15AECEE2C25F9CF00C12FA0 /* ACatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECED2C25F9CF00C12FA0 /* ACatDetailViewController.swift */; };
 		A15AECF02C25FE6500C12FA0 /* ACatDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECEF2C25FE6500C12FA0 /* ACatDetailViewModel.swift */; };
 		A15AECF22C25FF1C00C12FA0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECF12C25FF1C00C12FA0 /* Constants.swift */; };
-		A15AECF42C26057200C12FA0 /* CatsDemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECF32C26057100C12FA0 /* CatsDemoModel.swift */; };
+		A15AECF42C26057200C12FA0 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECF32C26057100C12FA0 /* UserSession.swift */; };
 		A15AECF72C27362100C12FA0 /* CatFavouriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECF62C27362100C12FA0 /* CatFavouriteService.swift */; };
 		A15AECF92C274F2C00C12FA0 /* CatFavResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECF82C274F2C00C12FA0 /* CatFavResponse.swift */; };
 		A15AECFB2C27525200C12FA0 /* FavoriteCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AECFA2C27525200C12FA0 /* FavoriteCat.swift */; };
@@ -83,7 +83,7 @@
 		A15AECED2C25F9CF00C12FA0 /* ACatDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACatDetailViewController.swift; sourceTree = "<group>"; };
 		A15AECEF2C25FE6500C12FA0 /* ACatDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACatDetailViewModel.swift; sourceTree = "<group>"; };
 		A15AECF12C25FF1C00C12FA0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		A15AECF32C26057100C12FA0 /* CatsDemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatsDemoModel.swift; sourceTree = "<group>"; };
+		A15AECF32C26057100C12FA0 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		A15AECF62C27362100C12FA0 /* CatFavouriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFavouriteService.swift; sourceTree = "<group>"; };
 		A15AECF82C274F2C00C12FA0 /* CatFavResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFavResponse.swift; sourceTree = "<group>"; };
 		A15AECFA2C27525200C12FA0 /* FavoriteCat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCat.swift; sourceTree = "<group>"; };
@@ -137,14 +137,14 @@
 		A105D14C2C24426100894B3E /* CatsDemo */ = {
 			isa = PBXGroup;
 			children = (
+				A15AECFD2C288BFF00C12FA0 /* ViewController */,
 				A15AECDB2C24A0BE00C12FA0 /* Services */,
 				A105D17F2C245AAB00894B3E /* ViewModel */,
 				A105D17E2C245AA200894B3E /* View */,
 				A105D17D2C245A0000894B3E /* Model */,
+				A15AECFC2C288BC900C12FA0 /* Utility */,
 				A105D14D2C24426100894B3E /* AppDelegate.swift */,
 				A105D14F2C24426100894B3E /* SceneDelegate.swift */,
-				A105D1512C24426100894B3E /* CatsViewController.swift */,
-				A15AECED2C25F9CF00C12FA0 /* ACatDetailViewController.swift */,
 				A105D1532C24426100894B3E /* Main.storyboard */,
 				A105D1562C24426300894B3E /* Assets.xcassets */,
 				A105D1582C24426300894B3E /* LaunchScreen.storyboard */,
@@ -173,9 +173,7 @@
 		A105D17D2C245A0000894B3E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A15AECF32C26057100C12FA0 /* CatsDemoModel.swift */,
 				A15AECD92C249BC800C12FA0 /* CatBreed.swift */,
-				A15AECF12C25FF1C00C12FA0 /* Constants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -230,6 +228,24 @@
 				A15AECFA2C27525200C12FA0 /* FavoriteCat.swift */,
 			);
 			path = CatFavourites;
+			sourceTree = "<group>";
+		};
+		A15AECFC2C288BC900C12FA0 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				A15AECF32C26057100C12FA0 /* UserSession.swift */,
+				A15AECF12C25FF1C00C12FA0 /* Constants.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		A15AECFD2C288BFF00C12FA0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A105D1512C24426100894B3E /* CatsViewController.swift */,
+				A15AECED2C25F9CF00C12FA0 /* ACatDetailViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,7 +386,7 @@
 				A15AECDA2C249BC800C12FA0 /* CatBreed.swift in Sources */,
 				A105D1822C247D9D00894B3E /* CatTableViewCell.swift in Sources */,
 				A105D1522C24426100894B3E /* CatsViewController.swift in Sources */,
-				A15AECF42C26057200C12FA0 /* CatsDemoModel.swift in Sources */,
+				A15AECF42C26057200C12FA0 /* UserSession.swift in Sources */,
 				A15AECF92C274F2C00C12FA0 /* CatFavResponse.swift in Sources */,
 				A15AECDD2C24A0DC00C12FA0 /* NetworkManager.swift in Sources */,
 				A15AECFB2C27525200C12FA0 /* FavoriteCat.swift in Sources */,
@@ -572,8 +588,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -581,9 +598,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.personal.CatsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -600,8 +621,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -609,9 +631,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.personal.CatsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

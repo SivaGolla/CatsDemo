@@ -49,7 +49,7 @@ class FetchCatsService: ServiceProviding {
             return
         }
         
-        NetworkManager(session: CatsDemoModel.activeSession).execute(request: request) { result in
+        NetworkManager(session: UserSession.activeSession).execute(request: request) { result in
             DispatchQueue.main.async {
                 completion(result)
             }

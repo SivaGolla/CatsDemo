@@ -17,25 +17,8 @@ class CatsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        title = "Cats Collection"
-        view.accessibilityIdentifier = "catsCollection"
-        catsTableView.register(UINib(nibName: "CatTableViewCell", bundle: nil), forCellReuseIdentifier: "CatTableViewCell")
-        catsTableView.dataSource = self
-        catsTableView.delegate = self
-        catsTableView.prefetchDataSource = self
-        catsTableView.rowHeight = UITableView.automaticDimension
-        catsTableView.estimatedRowHeight = 320
-        catsTableView.separatorStyle = .none
-        catsTableView.separatorColor = .clear
-        
-        viewModel.itemsDidChange = {
-            self.catsTableView.reloadData()
-        }
-        
-        viewModel.serviceDidFailed = { error in
-            // self?.showErrorPrompt()
-            print("Error during cat list fetch")
-        }
+        configureView()
+        bindViewModel()
         viewModel.fetchAllCatsWithFavs()
     }
     
@@ -47,7 +30,44 @@ class CatsViewController: UIViewController {
             destinationViewController.viewModel = viewModel
         }
     }
+}
 
+// MARK: - Private Methods
+extension CatsViewController {
+    private func configureView() {
+        title = "Cats Collection"
+        view.accessibilityIdentifier = "catsCollection"
+        catsTableView.register(UINib(nibName: "CatTableViewCell", bundle: nil), forCellReuseIdentifier: "CatTableViewCell")
+        catsTableView.dataSource = self
+        catsTableView.delegate = self
+        catsTableView.prefetchDataSource = self
+        catsTableView.rowHeight = UITableView.automaticDimension
+        catsTableView.estimatedRowHeight = 320
+        catsTableView.separatorStyle = .none
+        catsTableView.separatorColor = .clear
+    }
+    
+    private func bindViewModel() {
+        viewModel.itemsDidChange = {
+            self.catsTableView.reloadData()
+        }
+        
+        viewModel.serviceDidFailed = { error in
+            // self?.showErrorPrompt()
+            print("Error during cat list fetch")
+        }
+    }
+    
+    private func loadCatImage(at indexPath: IndexPath) {
+        viewModel.image(at: indexPath) { [weak self] image in
+            DispatchQueue.main.async {
+                if let currentCell = self?.catsTableView.cellForRow(at: indexPath) as? CatTableViewCell {
+                    currentCell.catImageView?.image = image
+                    currentCell.setNeedsLayout()
+                }
+            }
+        }
+    }
 }
 
 extension CatsViewController: UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
@@ -91,22 +111,11 @@ extension CatsViewController: UITableViewDataSource, UITableViewDelegate, UITabl
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "LoadCatDetails", sender: viewModel.catModels[indexPath.row].model)
     }
-    
-    func loadCatImage(at indexPath: IndexPath) {
-        viewModel.image(at: indexPath) { [weak self] image in
-            DispatchQueue.main.async {
-                if let currentCell = self?.catsTableView.cellForRow(at: indexPath) as? CatTableViewCell {
-                    currentCell.catImageView?.image = image
-                    currentCell.setNeedsLayout()
-                }
-            }
-        }
-    }
 }
 
 extension CatsViewController: CatTableViewCellDelegate {
     func toggleFavButton(favID: String?, catBreed: CatBreed, type: FavOpType) {
-        viewModel.toggleFavorite(favID: favID, catBreed: catBreed, type: type)
+        viewModel.toggleFavourite(favID: favID, catBreed: catBreed, type: type)
     }
 }
 

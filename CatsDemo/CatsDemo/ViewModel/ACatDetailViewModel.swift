@@ -63,7 +63,7 @@ final class ACatDetailViewModel {
         }
         
         // Check cache first
-        if let cachedImage = CatsDemoModel.imageCache.object(forKey: imageUrlString as NSString) {
+        if let cachedImage = UserSession.imageCache.object(forKey: imageUrlString as NSString) {
             completion(cachedImage)
             return
         }
@@ -81,7 +81,7 @@ final class ACatDetailViewModel {
             }
             
             // Cache the downloaded image
-            CatsDemoModel.imageCache.setObject(image, forKey: imageUrlString as NSString)
+            UserSession.imageCache.setObject(image, forKey: imageUrlString as NSString)
             self?.ongoingTask = nil
             
             // Return the downloaded image

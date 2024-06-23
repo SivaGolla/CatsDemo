@@ -13,7 +13,10 @@ enum FavOpType {
     case remove
 }
 
+/// CatFavouriteService manages favorite operations for cats. (fetch all favourites, mark a cat as favourite and remove a cat from their favourites
 class CatFavouriteService: ServiceProviding {
+    
+    // MARK: properties
     var urlSearchParams: ServiceRequestModel?
     var bodyParams: CatFavRequestModel?
 
@@ -29,11 +32,6 @@ class CatFavouriteService: ServiceProviding {
     func makeRequest() -> Request? {
         
         var urlPath = Environment.favouriteCats
-//        guard var urlComponents = URLComponents(string: Environment.favouriteCats) else {
-//            return nil
-//        }
-
-//        var queryParams: [URLQueryItem] = []
         
         let requestType: RequestType
         var requestBody: Data? = nil
@@ -41,29 +39,24 @@ class CatFavouriteService: ServiceProviding {
         
         switch type {
         case .fetch:
-            requestType = .getFavs
-        case .update:
+            requestType = .getFavs      // Fetches all favorite cats for the user.
+            
+        case .update:                   // Marks a specific cat as favorite for the user.
             requestType = .favItems
             requestBody = try? JSONEncoder().encode(bodyParams)
             httpMethod = .post
-        case .remove:
+        case .remove:                   // Removes a specific cat from the user's favorites.
             requestType = .unFavItem
             httpMethod = .del
             
             if let requestParams = urlSearchParams {
                 if let favId = requestParams.favId {
                     urlPath.append("/\(favId)")
-//                    queryParams.append(URLQueryItem(name: "favourite_id", value: favId))
                 }
             }
         }
         
         let headerParams = ["x-api-key": Environment.current.apiKey]
-        
-//        urlComponents.queryItems = queryParams
-//        guard let urlPath = urlComponents.url?.absoluteString else {
-//            return nil
-//        }
         
         let request = Request(path: urlPath, method: httpMethod, contentType: "application/json", headerParams: headerParams, type: requestType, body: requestBody)
         return request
@@ -77,7 +70,7 @@ class CatFavouriteService: ServiceProviding {
             return
         }
         
-        NetworkManager(session: CatsDemoModel.activeSession).execute(request: request) { result in
+        NetworkManager(session: UserSession.activeSession).execute(request: request) { result in
             DispatchQueue.main.async {
                 completion(result)
             }
