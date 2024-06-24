@@ -17,6 +17,9 @@ class CatsViewModel {
     var catModels: [ACatViewModel] = []
     private var favCats: [FavoriteCat] = []
     
+    var fetchCatsserviceRequest = FetchCatsService()
+    var fetchFavsServiceRequest = CatFavouriteService(type: .fetch)
+
     private var ongoingTasks = [IndexPath: URLSessionDataTask]()
     private var group: DispatchGroup = DispatchGroup()
     private let concurrentQueue = DispatchQueue(label: "com.personal.catsQ", attributes: .concurrent)
@@ -55,10 +58,8 @@ class CatsViewModel {
     private func loadCatList() {
         // Load your initial data here
         group.enter()
-        let serviceRequest = FetchCatsService()
         let urlSearchParams = ServiceRequestModel(limit: nil, page: nil, favId: nil)
-        
-        serviceRequest.urlSearchParams = urlSearchParams
+        fetchCatsserviceRequest.urlSearchParams = urlSearchParams
         
         let completion: (Result<[CatBreed], NetworkError>) -> Void = { [weak self] result in
             
@@ -72,12 +73,11 @@ class CatsViewModel {
             self?.group.leave()
         }
         
-        serviceRequest.fetch(completion: completion)
+        fetchCatsserviceRequest.fetch(completion: completion)
     }
     
     private func loadFavoriteCats() {
         group.enter()
-        let serviceRequest = CatFavouriteService(type: .fetch)
         let completion: (Result<[FavoriteCat], NetworkError>) -> Void = { [weak self] result in
             
             switch result {
@@ -91,7 +91,7 @@ class CatsViewModel {
             self?.group.leave()
         }
         
-        serviceRequest.fetch(completion: completion)
+        fetchFavsServiceRequest.fetch(completion: completion)
     }
     
     func image(at indexPath: IndexPath, completion: @escaping (UIImage?) -> Void) {

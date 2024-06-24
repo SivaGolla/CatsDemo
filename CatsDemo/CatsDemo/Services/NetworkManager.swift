@@ -10,9 +10,9 @@ import Foundation
 /// Handles various network requests of type Request
 class NetworkManager: NSObject {
     
-    private let activeSession: URLSession
+    private let activeSession: URLSessionProtocol
     
-    init(session: URLSession) {
+    init(session: URLSessionProtocol) {
         activeSession = session
     }
     
@@ -21,7 +21,7 @@ class NetworkManager: NSObject {
     ///   - request: Request
     ///   - completion: completion with Result (<T, NetworkError>) of the operation
     @discardableResult
-    func execute<T: Decodable>(request: Request, completion: @escaping (Result<T, NetworkError>) -> Void) -> URLSessionDataTask? {
+    func execute<T: Decodable>(request: Request, completion: @escaping (Result<T, NetworkError>) -> Void) -> URLSessionDataTaskProtocol? {
         
         guard let path = request.path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: path) else {
             completion(.failure(.invalidUrl))
