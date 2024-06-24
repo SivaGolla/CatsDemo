@@ -14,21 +14,25 @@ class CatsViewModel {
     var itemsDidChange: (() -> Void)?
     var serviceDidFailed: ((NetworkError) -> Void)?
     
-    var catModels: [ACatViewModel] = []
-    private var favCats: [FavoriteCat] = []
+    private(set) var catModels: [ACatViewModel] = []
+    private(set) var favCats: [FavoriteCat] = []
     
-    var fetchCatsserviceRequest = FetchCatsService()
+    var fetchCatsServiceRequest = FetchCatsService()
     var fetchFavsServiceRequest = CatFavouriteService(type: .fetch)
 
     private var ongoingTasks = [IndexPath: URLSessionDataTask]()
-    private var group: DispatchGroup = DispatchGroup()
+    
+    var group: DispatchGroup = DispatchGroup()
     private let concurrentQueue = DispatchQueue(label: "com.personal.catsQ", attributes: .concurrent)
 
     func fetchAllCatsWithFavs() {
         
-        concurrentQueue.async(group: group) {
-            self.loadCatList()
-            self.loadFavoriteCats()
+        concurrentQueue.async(group: group) { [weak self] in
+            self?.group.enter()
+            self?.loadCatList()
+            
+            self?.group.enter()
+            self?.loadFavoriteCats()
         }
         
         group.notify(queue: .main) {
@@ -55,11 +59,10 @@ class CatsViewModel {
         }
     }
     
-    private func loadCatList() {
+    func loadCatList() {
         // Load your initial data here
-        group.enter()
         let urlSearchParams = ServiceRequestModel(limit: nil, page: nil, favId: nil)
-        fetchCatsserviceRequest.urlSearchParams = urlSearchParams
+        fetchCatsServiceRequest.urlSearchParams = urlSearchParams
         
         let completion: (Result<[CatBreed], NetworkError>) -> Void = { [weak self] result in
             
@@ -73,11 +76,10 @@ class CatsViewModel {
             self?.group.leave()
         }
         
-        fetchCatsserviceRequest.fetch(completion: completion)
+        fetchCatsServiceRequest.fetch(completion: completion)
     }
     
-    private func loadFavoriteCats() {
-        group.enter()
+    func loadFavoriteCats() {
         let completion: (Result<[FavoriteCat], NetworkError>) -> Void = { [weak self] result in
             
             switch result {

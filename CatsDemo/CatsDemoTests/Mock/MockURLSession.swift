@@ -24,17 +24,14 @@ class MockURLSession: URLSessionProtocol {
     func dataTask(with request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol {
         lastURL = request.url
         
-        if let urlPath = request.url?.absoluteString, urlPath == Environment.catBreedList {
-            
-            let bundle = Bundle(for: NetworkManager.self)
-            
-            guard let mockResponseFileUrl = bundle.url(forResource: responseFileName, withExtension: "json"),
-                  let data = try? Data(contentsOf: mockResponseFileUrl) else {
-                      completionHandler(nil, nil, mockError)
-                      return mockDataTask
-                  }
-            mockData = data
+        let bundle = Bundle(for: NetworkManager.self)
+        
+        guard let mockResponseFileUrl = bundle.url(forResource: responseFileName, withExtension: "json"),
+              let data = try? Data(contentsOf: mockResponseFileUrl) else {
+            completionHandler(nil, nil, mockError)
+            return mockDataTask
         }
+        mockData = data
         
         completionHandler(mockData, mockHttpURLResponse(request: request), mockError)
         return mockDataTask
