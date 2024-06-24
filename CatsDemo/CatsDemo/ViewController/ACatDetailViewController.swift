@@ -21,6 +21,8 @@ class ACatDetailViewController: UIViewController {
         super.viewDidLoad()
 
         catImageView.layer.cornerRadius = 5
+//        automaticallyAdjustsScrollViewInsets = false
+        scrollView.contentInsetAdjustmentBehavior = .automatic
         configure()
     }
     
@@ -32,9 +34,12 @@ class ACatDetailViewController: UIViewController {
         
         title = viewModel.titleText
         catInfoTextView.text = viewModel.fullText
-        viewModel.loadRemoteImage { [weak self] image in
-            DispatchQueue.main.async {
-                self?.catImageView.image = image
+        
+        DispatchQueue.global().async {
+            viewModel.loadRemoteImage { [weak self] image in
+                DispatchQueue.main.async {
+                    self?.catImageView.image = image
+                }
             }
         }
         

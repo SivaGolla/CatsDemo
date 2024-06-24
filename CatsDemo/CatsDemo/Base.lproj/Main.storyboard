@@ -19,7 +19,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="skW-UD-Xxb">
                                 <rect key="frame" x="0.0" y="155" width="393" height="697"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="wH9-zQ-9zK"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="SiC-x6-CDJ"/>
@@ -27,7 +27,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="skW-UD-Xxb" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="7ji-Ij-wfE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="skW-UD-Xxb" secondAttribute="trailing" id="C7O-FK-8dc"/>
@@ -54,10 +54,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="393" placeholderIntrinsicHeight="757" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIt-Oh-2BV">
-                                <rect key="frame" x="0.0" y="95" width="393" height="757"/>
+                                <rect key="frame" x="0.0" y="155" width="393" height="697"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mog-Rw-mO4">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="707"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="697"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tMR-hE-UwY">
                                                 <rect key="frame" x="16" y="16" width="361" height="404"/>
@@ -75,7 +75,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Wiki" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cD4-X2-dzc">
-                                                <rect key="frame" x="16" y="644" width="361" height="39"/>
+                                                <rect key="frame" x="16" y="644" width="361" height="29"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -117,7 +117,7 @@
                             <constraint firstItem="JIt-Oh-2BV" firstAttribute="bottom" secondItem="Ynk-T5-u3L" secondAttribute="bottom" constant="34" id="BWp-f6-Mf0"/>
                             <constraint firstItem="Ynk-T5-u3L" firstAttribute="trailing" secondItem="JIt-Oh-2BV" secondAttribute="trailing" id="JK4-En-JbK"/>
                             <constraint firstItem="JIt-Oh-2BV" firstAttribute="leading" secondItem="Ynk-T5-u3L" secondAttribute="leading" id="MSX-a2-jR0"/>
-                            <constraint firstItem="Ynk-T5-u3L" firstAttribute="top" secondItem="JIt-Oh-2BV" secondAttribute="top" constant="60" id="Nuy-e8-bWE"/>
+                            <constraint firstItem="Ynk-T5-u3L" firstAttribute="top" secondItem="JIt-Oh-2BV" secondAttribute="top" id="Nuy-e8-bWE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kEB-mZ-9or"/>

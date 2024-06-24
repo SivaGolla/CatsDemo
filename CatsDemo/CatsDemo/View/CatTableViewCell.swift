@@ -12,6 +12,7 @@ protocol CatTableViewCellDelegate: AnyObject {
 }
 
 class CatTableViewCell: UITableViewCell {
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var catImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var favButton: UIButton!
@@ -26,10 +27,8 @@ class CatTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        catImageView.layer.cornerRadius = 5
-        contentView.layer.cornerRadius = 5
-        contentView.layer.cornerCurve = .continuous
-        contentView.layer.masksToBounds = true
+        catImageView.addCornerRadius(5)
+        containerView.addCornerRadius()
     }
     
     override func prepareForReuse() {

@@ -23,10 +23,10 @@ class CatsViewModel {
 
     func fetchAllCatsWithFavs() {
         
-//        concurrentQueue.async {
+        concurrentQueue.async(group: group) {
             self.loadCatList()
             self.loadFavoriteCats()
-//        }
+        }
         
         group.notify(queue: .main) {
             

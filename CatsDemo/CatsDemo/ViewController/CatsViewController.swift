@@ -50,16 +50,16 @@ extension CatsViewController {
     }
     
     private func bindViewModel() {
-        viewModel.itemsDidChange = {
+        viewModel.itemsDidChange = { [weak self] in
             LoadingView.stop()
-            self.catsTableView.reloadData()
+            self?.catsTableView.reloadData()
         }
         
-        viewModel.serviceDidFailed = { error in
-            // self?.showErrorPrompt()
+        viewModel.serviceDidFailed = { [weak self] error in
             
             DispatchQueue.main.async {
                 LoadingView.stop()
+                self?.showErrorPrompt()
             }
             
             print("Error during cat list fetch")
@@ -75,6 +75,10 @@ extension CatsViewController {
                 }
             }
         }
+    }
+    
+    func showErrorPrompt() {
+        // Present an error to the user
     }
 }
 
