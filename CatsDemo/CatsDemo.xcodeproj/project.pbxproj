@@ -72,6 +72,7 @@
 		A15AED372C29E07700C12FA0 /* ACatViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AED362C29E07700C12FA0 /* ACatViewModelTests.swift */; };
 		A15AED392C29E08F00C12FA0 /* ACatDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AED382C29E08F00C12FA0 /* ACatDetailViewModelTests.swift */; };
 		A15AED3B2C29F5FC00C12FA0 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15AED3A2C29F5FC00C12FA0 /* UserSession.swift */; };
+		A15AED3D2C2A1C5600C12FA0 /* FavResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A15AED3C2C2A1C5600C12FA0 /* FavResponse.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +151,7 @@
 		A15AED362C29E07700C12FA0 /* ACatViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACatViewModelTests.swift; sourceTree = "<group>"; };
 		A15AED382C29E08F00C12FA0 /* ACatDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACatDetailViewModelTests.swift; sourceTree = "<group>"; };
 		A15AED3A2C29F5FC00C12FA0 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		A15AED3C2C2A1C5600C12FA0 /* FavResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FavResponse.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,6 +334,7 @@
 			children = (
 				A15AED2C2C29BEDD00C12FA0 /* FetchAllCatsResponse.json */,
 				A15AED2E2C29C29100C12FA0 /* MyFavCats.json */,
+				A15AED3C2C2A1C5600C12FA0 /* FavResponse.json */,
 				A15AED292C29B96A00C12FA0 /* MockURLSession.swift */,
 				A15AED3A2C29F5FC00C12FA0 /* UserSession.swift */,
 			);
@@ -490,6 +493,7 @@
 				A15AED2F2C29C29100C12FA0 /* MyFavCats.json in Resources */,
 				A15AED1D2C2996B000C12FA0 /* CatTableViewCell.xib in Resources */,
 				A15AED1E2C2996B000C12FA0 /* Assets.xcassets in Resources */,
+				A15AED3D2C2A1C5600C12FA0 /* FavResponse.json in Resources */,
 				A15AED2D2C29BEDD00C12FA0 /* FetchAllCatsResponse.json in Resources */,
 				A15AED1F2C2996B000C12FA0 /* Base in Resources */,
 				A15AED202C2996B000C12FA0 /* Base in Resources */,
