@@ -114,7 +114,7 @@ class CatsViewModel {
             return
         }
         
-        let task = URLSession.shared.dataTask(with: imageUrl) { data, response, error in
+        let task = URLSession.shared.dataTask(with: imageUrl) { [weak self] data, response, error in
             guard let data = data, error == nil, let image = UIImage(data: data) else {
                 completion(Constants.placeholderImage)
                 return
@@ -122,7 +122,7 @@ class CatsViewModel {
             
             // Cache the downloaded image
             UserSession.imageCache.setObject(image, forKey: imageUrlString as NSString)
-            self.ongoingTasks[indexPath] = nil
+            self?.ongoingTasks[indexPath] = nil
             
             // Return the downloaded image
             completion(image)

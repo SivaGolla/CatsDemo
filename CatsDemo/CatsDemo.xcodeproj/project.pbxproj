@@ -107,6 +107,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A101AEDE2C2AA05E00B72210 /* CatsDemo-Dev.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CatsDemo-Dev.xctestplan"; sourceTree = "<group>"; };
 		A105D14A2C24426100894B3E /* CatsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A105D14D2C24426100894B3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A105D14F2C24426100894B3E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +190,7 @@
 		A105D1412C24426100894B3E = {
 			isa = PBXGroup;
 			children = (
+				A101AEDE2C2AA05E00B72210 /* CatsDemo-Dev.xctestplan */,
 				A105D14C2C24426100894B3E /* CatsDemo */,
 				A105D1632C24426400894B3E /* CatsDemoTests */,
 				A105D16D2C24426400894B3E /* CatsDemoUITests */,
